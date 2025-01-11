@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "killer_perks",
+  "info": {
+    "singularName": "killer-perk",
+    "pluralName": "killer-perks",
+    "displayName": "KillerPerks"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "perk": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "templates.perk-template",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_templates_ability_templates",
+  "info": {
+    "displayName": "AbilityTemplate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "addons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "templates.addon-template",
+      "required": true
+    }
+  }
+}
