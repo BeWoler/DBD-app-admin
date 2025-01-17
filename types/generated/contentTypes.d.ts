@@ -478,6 +478,36 @@ export interface ApiKillerKiller extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
+  collectionName: 'subscribers';
+  info: {
+    displayName: 'Subscribers';
+    pluralName: 'subscribers';
+    singularName: 'subscriber';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::subscriber.subscriber'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSurvivorPerkSurvivorPerk
   extends Struct.CollectionTypeSchema {
   collectionName: 'survivor_perks';
@@ -1098,6 +1128,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::killer-perk.killer-perk': ApiKillerPerkKillerPerk;
       'api::killer.killer': ApiKillerKiller;
+      'api::subscriber.subscriber': ApiSubscriberSubscriber;
       'api::survivor-perk.survivor-perk': ApiSurvivorPerkSurvivorPerk;
       'api::survivor.survivor': ApiSurvivorSurvivor;
       'plugin::content-releases.release': PluginContentReleasesRelease;
